@@ -1,0 +1,43 @@
+{
+  "name": "Flutter + Android API 35",
+  "image": "flutter-android:noble-api35-slim", // ou flutter-android:noble-api35
+  "workspaceFolder": "/workspace",
+
+  // Mapeia a pasta atual do host para dentro do container
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+
+  // Permite acesso ao USB para debug em dispositivos Android reais
+  "runArgs": [
+    "--privileged",
+    "-v",
+    "/dev/bus/usb:/dev/bus/usb"
+  ],
+
+  // Usuário root (para evitar problemas com SDK/adb)
+  "remoteUser": "root",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Dart-Code.flutter",
+        "Dart-Code.dart-code",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "dart.flutterSdkPath": "/usr/lib/flutter",
+        "dart.sdkPath": "/usr/lib/flutter/bin/cache/dart-sdk"
+      }
+    }
+  },
+
+  // Forward de portas úteis (ex.: web preview, adb tcpip)
+  "forwardPorts": [
+    8080,
+    5037
+  ],
+
+  // Pós-criação (ex.: checar ambiente Flutter)
+  "postCreateCommand": "flutter doctor -v"
+}
