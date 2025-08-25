@@ -13,6 +13,7 @@
     "/dev/bus/usb:/dev/bus/usb"
   ],
   "remoteUser": "root",
+  "initializeCommand": "bash -lc 'sudo bash scripts/setup-udev.sh infra/51-android.rules || true'",
   "customizations": {
     "vscode": {
       "extensions": [

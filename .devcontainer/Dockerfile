@@ -33,10 +33,10 @@ ENV ANDROID_SDK_ROOT=${ANDROID_SDK_ROOT} \
     JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ENV PATH="${PATH}:${FLUTTER_SDK_ROOT}/bin:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin:${ANDROID_SDK_ROOT}/platform-tools"
 
-# Deps mínimas
+# Deps mínimas (sem watchman)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-      ca-certificates unzip xz-utils zip git watchman curl wget \
+      ca-certificates unzip xz-utils zip git curl wget \
       openjdk-17-jdk-headless libglu1-mesa \
       libc6:amd64 libstdc++6:amd64 lib32z1 libbz2-1.0:amd64 && \
     rm -rf /var/lib/apt/lists/*

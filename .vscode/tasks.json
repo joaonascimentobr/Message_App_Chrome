@@ -1,0 +1,16 @@
+// {
+//   "version": "2.0.0",
+//   "tasks": [
+//     {
+//       "label": "Setup udev Android (host)",
+//       "type": "shell",
+//       "command": "bash -lc 'chmod +x scripts/setup-udev.sh && sudo ./scripts/setup-udev.sh infra/51-android.rules'",
+//       "runOptions": { "runOn": "folderOpen" }, // pergunta ao abrir a pasta
+//       "presentation": { "reveal": "always", "panel": "dedicated" },
+//       "problemMatcher": [],
+//       "options": {
+//         "cwd": "${workspaceFolder}"
+//       }
+//     }
+//   ]
+// }
