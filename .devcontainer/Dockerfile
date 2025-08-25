@@ -28,6 +28,7 @@ ARG ANDROID_PLATFORM=android-35
 ARG ANDROID_BUILD_TOOLS=35.0.0
 
 ENV ANDROID_SDK_ROOT=${ANDROID_SDK_ROOT} \
+    ANDROID_HOME=${ANDROID_SDK_ROOT} \
     FLUTTER_SDK_ROOT=${FLUTTER_SDK_ROOT} \
     JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ENV PATH="${PATH}:${FLUTTER_SDK_ROOT}/bin:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin:${ANDROID_SDK_ROOT}/platform-tools"
@@ -66,6 +67,7 @@ RUN set -eux; \
     tar -xJf /tmp/flutter.tar.xz -C /usr/lib/; \
     rm -f /tmp/flutter.tar.xz; \
     flutter --disable-analytics; \
+    flutter config --android-sdk "${ANDROID_SDK_ROOT}"; \
     flutter precache --android
 
 # (Opcional) aceitar licenças via Flutter
